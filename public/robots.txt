@@ -4,4 +4,4 @@ Disallow: /admin
 Disallow: /admin/
 Disallow: /admin/*
 
-Sitemap: https://casavacacionalimasaruconil.es/sitemap.xml
+Sitemap: https://casavacacionalimasaruconil.com/sitemap.xml
