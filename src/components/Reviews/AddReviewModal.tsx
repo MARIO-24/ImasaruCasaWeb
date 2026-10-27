@@ -112,8 +112,10 @@ export const AddReviewModal: React.FC<AddReviewModalProps> = ({ isOpen, onClose 
                       onMouseEnter={() => setHoverRating(star)}
                       onMouseLeave={() => setHoverRating(null)}
                       className="p-1 text-amber-400 hover:scale-110 transition-transform"
+                      aria-label={`Calificar con ${star} de 5 estrellas`}
                     >
                       <Star
+                        aria-hidden="true"
                         className={`w-6 h-6 ${
                           (hoverRating !== null ? star <= hoverRating : star <= rating)
                             ? 'fill-amber-400 text-amber-400'

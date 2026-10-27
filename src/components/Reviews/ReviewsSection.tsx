@@ -34,7 +34,7 @@ export const ReviewsSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12">
           <div>
             <span className="text-xs font-semibold uppercase tracking-wider text-terracotta-600 flex items-center gap-1.5">
-              <Star className="w-3.5 h-3.5 fill-terracotta-600" />
+              <Star className="w-3.5 h-3.5 fill-terracotta-600" aria-hidden="true" />
               Experiencias & Reseñas
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-timber-950 mt-2 tracking-tight">

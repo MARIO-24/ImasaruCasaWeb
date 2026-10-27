@@ -27,10 +27,15 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
     <div className="p-6 rounded-2xl bg-white border border-sand-200 shadow-sm flex flex-col justify-between transition-all duration-200 hover:shadow-md">
       <div>
         {/* Stars */}
-        <div className="flex items-center gap-1 mb-3" aria-label={`Puntuación: ${review.rating} de 5 estrellas`}>
+        <div
+          className="flex items-center gap-1 mb-3"
+          role="img"
+          aria-label={`Puntuación: ${review.rating} de 5 estrellas`}
+        >
           {Array.from({ length: 5 }).map((_, idx) => (
             <Star
               key={idx}
+              aria-hidden="true"
               className={`w-4 h-4 ${
                 idx < review.rating
                   ? 'fill-amber-400 text-amber-400'

@@ -26,6 +26,8 @@
   AddType image/x-icon .ico
   AddType image/png .png
   AddType application/javascript .js
+  AddType text/plain;charset=utf-8 .txt
+  AddType application/json;charset=utf-8 .json
 </IfModule>
 
 # Evitar navegación por directorios
