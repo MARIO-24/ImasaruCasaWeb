@@ -51,9 +51,23 @@
     {
       "@context": "https://schema.org",
       "@type": "VacationRental",
+      "additionalType": "https://schema.org/House",
       "name": "Casa Vacacional Imasaru",
       "url": "https://casavacacionalimasaruconil.com/",
-      "image": "https://casavacacionalimasaruconil.com/images/exterior-casa.jpg",
+      "image": [
+        "https://casavacacionalimasaruconil.com/images/exterior-casa.jpg",
+        "https://casavacacionalimasaruconil.com/images/piscina-solarium.jpg",
+        "https://casavacacionalimasaruconil.com/images/porche-sofas.jpg",
+        "https://casavacacionalimasaruconil.com/images/dormitorio-principal.jpg",
+        "https://casavacacionalimasaruconil.com/images/barbacoa-pergola.jpg",
+        "https://casavacacionalimasaruconil.com/images/piscina-agua.jpg",
+        "https://casavacacionalimasaruconil.com/images/cocina-equipada.jpg",
+        "https://casavacacionalimasaruconil.com/images/salon-comedor.jpg",
+        "https://casavacacionalimasaruconil.com/images/dormitorio-individuales.jpg",
+        "https://casavacacionalimasaruconil.com/images/porche-comedor.jpg",
+        "https://casavacacionalimasaruconil.com/images/jardin-flores.jpg",
+        "https://casavacacionalimasaruconil.com/images/salon-estar.jpg"
+      ],
       "description": "Acogedora casa vacacional de madera en Conil de la Frontera (Cádiz) con piscina privada vallada, jardín con césped, barbacoa de obra y porche cubierto.",
       "address": {
         "@type": "PostalAddress",
@@ -73,6 +87,30 @@
       "numberOfBedrooms": 2,
       "numberOfBathroomsTotal": 2,
       "petsAllowed": true,
+      "containsPlace": [
+        {
+          "@type": "Accommodation",
+          "name": "Dormitorio Principal Abuhardillado",
+          "description": "Dormitorio de matrimonio en planta alta con techos abuhardillados de madera y vistas al exterior.",
+          "numberOfBedrooms": 1,
+          "bed": {
+            "@type": "BedDetails",
+            "numberOfBeds": 1,
+            "typeOfBed": "Cama de matrimonio"
+          }
+        },
+        {
+          "@type": "Accommodation",
+          "name": "Dormitorio de Camas Individuales",
+          "description": "Segundo dormitorio con dos camas individuales y mobiliario de madera.",
+          "numberOfBedrooms": 1,
+          "bed": {
+            "@type": "BedDetails",
+            "numberOfBeds": 2,
+            "typeOfBed": "Cama individual"
+          }
+        }
+      ],
       "amenityFeature": [
         { "@type": "LocationFeatureSpecification", "name": "Piscina privada vallada", "value": true },
         { "@type": "LocationFeatureSpecification", "name": "Barbacoa de obra", "value": true },
