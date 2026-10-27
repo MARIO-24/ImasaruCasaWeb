@@ -34,4 +34,4 @@ dist-ssr
 
 # Local test & scratch scripts
 test_playwright.cjs
-images/
+/images/
