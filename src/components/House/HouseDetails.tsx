@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Users, Bed, Bath, Waves, Sun, Sparkles, Check } from 'lucide-react';
+import { Users, Bed, Bath, Waves, Sun, Sparkles, Check, Car } from 'lucide-react';
 import { SPACES, HOUSE_INFO } from '../../data/houseData';
 import { AmenitiesList } from './AmenitiesList';
 
@@ -41,6 +41,10 @@ export const HouseDetails: React.FC = () => {
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sand-200/80 text-timber-900 text-xs font-medium">
               <Waves className="w-3.5 h-3.5 text-terracotta-600" />
               <span>Piscina privada vallada</span>
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sand-200/80 text-timber-900 text-xs font-medium">
+              <Car className="w-3.5 h-3.5 text-terracotta-600" />
+              <span>Parking privado techado</span>
             </div>
           </div>
         </div>

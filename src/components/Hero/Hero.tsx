@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, MessageCircle, MapPin, Users, Bed, Waves, Utensils } from 'lucide-react';
+import { Calendar, MessageCircle, MapPin, Users, Bed, Waves, Utensils, Car } from 'lucide-react';
 import { HOUSE_INFO } from '../../data/houseData';
 
 export const Hero: React.FC = () => {
@@ -57,6 +57,10 @@ export const Hero: React.FC = () => {
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10">
             <Utensils className="w-4 h-4 text-sand-200" />
             <span>Barbacoa & Porche</span>
+          </div>
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10">
+            <Car className="w-4 h-4 text-sand-200" />
+            <span>Parking Privado Techado</span>
           </div>
         </div>
 

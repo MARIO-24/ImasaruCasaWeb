@@ -68,12 +68,12 @@ export const LocationSection: React.FC = () => {
             </div>
 
             {/* Address Card & External Map Link */}
-            <div className="p-5 rounded-2xl bg-timber-900 text-white space-y-3">
+            <div className="p-5 rounded-2xl bg-timber-900 text-sand-50 space-y-3">
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-terracotta-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-serif text-base font-bold">Dirección Exacta</h4>
-                  <p className="text-xs text-sand-200 mt-0.5">
+                  <h4 className="font-serif text-base font-bold text-sand-50">Dirección Exacta</h4>
+                  <p className="text-xs text-sand-100 mt-0.5 leading-relaxed">
                     {HOUSE_INFO.address.street} · {HOUSE_INFO.address.postalCode} {HOUSE_INFO.address.locality} ({HOUSE_INFO.address.province})
                   </p>
                 </div>
@@ -83,10 +83,10 @@ export const LocationSection: React.FC = () => {
                 href={HOUSE_INFO.address.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold tracking-wide transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-sand-50/15 hover:bg-sand-50/25 text-sand-50 hover:text-white text-xs font-semibold tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand-100"
               >
                 <span>Abrir ubicación en Google Maps</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <ExternalLink className="w-3.5 h-3.5 text-sand-200" />
               </a>
             </div>
 

@@ -4,7 +4,7 @@ export const HOUSE_INFO = {
   name: 'Casa Vacacional Imasaru',
   registrationNumber: 'RTA: VTAR/CA/01451',
   tagline: 'Tu refugio de madera y tranquilidad en Conil de la Frontera',
-  description: 'Acogedora casa de madera con encanto rural situada en una tranquila parcela privada de Conil de la Frontera (Cádiz). Diseñada para desconectar del ritmo diario, rodeada de naturaleza y a pocos minutos de las mejores calas gaditanas.',
+  description: 'Acogedora casa de madera con encanto rural situada en una tranquila parcela privada con piscina y parking techado en Conil de la Frontera (Cádiz). Diseñada para desconectar del ritmo diario, rodeada de naturaleza y a pocos minutos de las mejores calas gaditanas.',
   address: {
     street: 'Diseminado Pago Zorro, 657',
     locality: 'Conil de la Frontera',
@@ -119,7 +119,7 @@ export const AMENITIES: Amenity[] = [
   { name: 'Aire Acondicionado', description: 'Climatización frío/calor para máximo confort', iconName: 'Wind', category: 'comfort' },
   { name: 'Internet Wi-Fi', description: 'Conexión inalámbrica gratuita en toda la vivienda', iconName: 'Wifi', category: 'comfort' },
   { name: 'Cocina Completa', description: 'Lavavajillas, lavadora, microondas, frigorífico y fogones', iconName: 'UtensilsCrossed', category: 'interior' },
-  { name: 'Aparcamiento Privado', description: 'Espacio dentro de la propia parcela cerrada', iconName: 'ShieldCheck', category: 'comfort' },
+  { name: 'Parking Privado y Techado', description: 'Aparcamiento cubierto dentro de la propia parcela cerrada', iconName: 'Car', category: 'comfort' },
   { name: 'Mascotas bienvenidas', description: 'Suplemento de 5 € por mascota y por noche.', iconName: 'HeartHandshake', category: 'comfort' },
   { name: 'Registro Oficial Junta Andalucía', description: 'Vivienda Turística de Alojamiento Rural VTAR/CA/01451', iconName: 'Award', category: 'comfort' },
   { name: 'Atención Directa Propietarios', description: 'Trato cercano y personal con Pilar y Paco', iconName: 'UserCheck', category: 'comfort' }

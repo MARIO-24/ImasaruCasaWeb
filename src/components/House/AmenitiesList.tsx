@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   Waves, Flame, Home, Trees, Bath, Wind, Wifi, 
-  UtensilsCrossed, ShieldCheck, HeartHandshake, Award, UserCheck 
+  UtensilsCrossed, ShieldCheck, HeartHandshake, Award, UserCheck, Car 
 } from 'lucide-react';
 import { AMENITIES } from '../../data/houseData';
 
@@ -18,6 +18,7 @@ const iconMap: Record<string, React.ElementType> = {
   HeartHandshake,
   Award,
   UserCheck,
+  Car,
 };
 
 export const AmenitiesList: React.FC = () => {
