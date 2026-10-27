@@ -1,0 +1,139 @@
+@import 'react-day-picker/src/style.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    @apply bg-sand-50 text-timber-900 font-sans;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif text-timber-950 tracking-tight;
+  }
+
+  /* Accessibility: Consistent keyboard focus indicators */
+  :focus-visible {
+    outline: 2px solid #CC6649;
+    outline-offset: 2px;
+  }
+}
+
+/* Accessibility: Support users with prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom DayPicker Coastal Styling */
+.rdp-root {
+  --rdp-accent-color: #CC6649;
+  --rdp-background-color: #F7F2EA;
+  font-family: inherit;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.rdp-months {
+  width: 100%;
+  justify-content: center;
+}
+
+.rdp-month {
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.rdp-month_caption {
+  display: none !important; /* Managed via our custom accessible month-year header */
+}
+
+.rdp-nav {
+  display: none !important; /* Managed via our custom controls */
+}
+
+.rdp-month_grid {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0.25rem 0.35rem;
+  table-layout: fixed;
+}
+
+.rdp-weekdays {
+  width: 100%;
+}
+
+.rdp-weekday {
+  @apply text-xs font-semibold text-timber-600 uppercase tracking-wider py-2 text-center;
+  opacity: 0.85;
+}
+
+.rdp-weeks {
+  width: 100%;
+}
+
+.rdp-week {
+  width: 100%;
+}
+
+.rdp-day {
+  height: 2.5rem;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 150ms ease;
+  padding: 0;
+  margin: 0;
+}
+
+.rdp-hidden {
+  visibility: hidden;
+}
+
+/* Day State Variations */
+.day-free {
+  @apply bg-emerald-50 text-emerald-800 border border-emerald-300/80 hover:bg-emerald-100 font-medium;
+}
+
+.day-booked {
+  @apply bg-rose-50 text-rose-800 border border-rose-300/80 font-medium cursor-default line-through decoration-rose-300;
+}
+
+.day-past {
+  @apply bg-sand-200/60 text-timber-600 border border-transparent cursor-not-allowed opacity-75;
+}
+
+.day-today {
+  @apply ring-2 ring-amber-500 font-bold;
+}
+
+.day-today.day-booked {
+  @apply ring-2 ring-amber-500 bg-rose-100/80 text-rose-900 border-rose-400;
+}
+
+.day-today.day-free {
+  @apply ring-2 ring-amber-500 bg-emerald-100/90 text-emerald-900;
+}
+
+.day-blocked {
+  @apply bg-amber-50 text-amber-900 border border-amber-300 font-medium;
+}
+
+.day-maintenance {
+  @apply bg-slate-100 text-slate-800 border border-slate-300 font-medium;
+}
+

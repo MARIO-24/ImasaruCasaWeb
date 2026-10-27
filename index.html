@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2A1D15" />
+
+    <!-- PWA Configuration for Casa Vacacional Imasaru Gestión -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Imasaru Gestión" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Casa Vacacional Imasaru | Alquiler y Casa con Piscina en Conil de la Frontera</title>
+    <meta name="description" content="Casa vacacional de madera con encanto y piscina privada vallada en Conil de la Frontera, Cádiz. Capacidad 4-5 personas, 2 dormitorios, porche, barbacoa y jardín. Registro oficial RTA: VTAR/CA/01451." />
+    <meta name="keywords" content="casa vacacional Conil de la Frontera, alquiler vacacional Conil, casa con piscina privada Conil, alojamiento calas de Conil, vacaciones Cádiz, VTAR/CA/01451" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://casavacacionalimasaruconil.es/" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://casavacacionalimasaruconil.es/" />
+    <meta property="og:site_name" content="Casa Vacacional Imasaru" />
+    <meta property="og:title" content="Casa Vacacional Imasaru | Casa con Piscina en Conil de la Frontera" />
+    <meta property="og:description" content="Tu refugio de madera y tranquilidad junto a las calas de Conil. Piscina privada vallada, jardín, porche y barbacoa de obra." />
+    <meta property="og:image" content="https://casavacacionalimasaruconil.es/images/exterior-casa.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Casa Vacacional Imasaru | Casa con Piscina en Conil de la Frontera" />
+    <meta name="twitter:description" content="Tu refugio de madera y tranquilidad junto a las calas de Conil. Piscina privada vallada, jardín, porche y barbacoa de obra." />
+    <meta name="twitter:image" content="https://casavacacionalimasaruconil.es/images/exterior-casa.jpg" />
+
+    <!-- Google Fonts Preconnect & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Preload Hero Image (LCP) -->
+    <link rel="preload" as="image" href="/images/exterior-casa.jpg" />
+
+    <!-- Schema.org JSON-LD for VacationRental -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VacationRental",
+      "name": "Casa Vacacional Imasaru",
+      "url": "https://casavacacionalimasaruconil.es/",
+      "image": "https://casavacacionalimasaruconil.es/images/exterior-casa.jpg",
+      "description": "Acogedora casa vacacional de madera en Conil de la Frontera (Cádiz) con piscina privada vallada, jardín con césped, barbacoa de obra y porche cubierto.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Diseminado Pago Zorro, 657",
+        "addressLocality": "Conil de la Frontera",
+        "postalCode": "11149",
+        "addressRegion": "Cádiz",
+        "addressCountry": "ES"
+      },
+      "telephone": "+34699278630",
+      "email": "pilirufinofer@gmail.com",
+      "identifier": "VTAR/CA/01451",
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "maxValue": 5
+      },
+      "numberOfBedrooms": 2,
+      "numberOfBathroomsTotal": 2,
+      "petsAllowed": true,
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Piscina privada vallada", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Barbacoa de obra", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Aire acondicionado frío/calor", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Wi-Fi gratuito", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Jardín privado cerrado", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Porche de madera amueblado", "value": true }
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-sand-50 text-timber-900 font-sans antialiased selection:bg-terracotta-500/20 selection:text-timber-950">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
+
