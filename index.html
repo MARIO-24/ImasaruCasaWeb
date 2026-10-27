@@ -51,7 +51,7 @@
     {
       "@context": "https://schema.org",
       "@type": "VacationRental",
-      "additionalType": "https://schema.org/House",
+      "additionalType": "House",
       "name": "Casa Vacacional Imasaru",
       "url": "https://casavacacionalimasaruconil.com/",
       "image": [
@@ -77,47 +77,48 @@
         "addressRegion": "Cádiz",
         "addressCountry": "ES"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 36.303944,
+        "longitude": -6.118250
+      },
       "telephone": "+34699278630",
       "email": "pilirufinofer@gmail.com",
       "identifier": "VTAR/CA/01451",
-      "occupancy": {
-        "@type": "QuantitativeValue",
-        "maxValue": 5
-      },
-      "numberOfBedrooms": 2,
-      "numberOfBathroomsTotal": 2,
       "petsAllowed": true,
       "containsPlace": [
         {
           "@type": "Accommodation",
-          "name": "Dormitorio Principal Abuhardillado",
-          "description": "Dormitorio de matrimonio en planta alta con techos abuhardillados de madera y vistas al exterior.",
-          "numberOfBedrooms": 1,
-          "bed": {
-            "@type": "BedDetails",
-            "numberOfBeds": 1,
-            "typeOfBed": "Cama de matrimonio"
-          }
-        },
-        {
-          "@type": "Accommodation",
-          "name": "Dormitorio de Camas Individuales",
-          "description": "Segundo dormitorio con dos camas individuales y mobiliario de madera.",
-          "numberOfBedrooms": 1,
-          "bed": {
-            "@type": "BedDetails",
-            "numberOfBeds": 2,
-            "typeOfBed": "Cama individual"
-          }
+          "additionalType": "EntirePlace",
+          "name": "Casa Vacacional Imasaru",
+          "description": "Casa rural de madera con encanto para 4-5 personas, piscina privada vallada, porche amueblado, barbacoa y jardín.",
+          "numberOfBedrooms": 2,
+          "numberOfBathroomsTotal": 2,
+          "occupancy": {
+            "@type": "QuantitativeValue",
+            "value": 5
+          },
+          "bed": [
+            {
+              "@type": "BedDetails",
+              "numberOfBeds": 1,
+              "typeOfBed": "Double"
+            },
+            {
+              "@type": "BedDetails",
+              "numberOfBeds": 2,
+              "typeOfBed": "Single"
+            }
+          ],
+          "amenityFeature": [
+            { "@type": "LocationFeatureSpecification", "name": "Piscina privada vallada", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Barbacoa de obra", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Aire acondicionado frío/calor", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Wi-Fi gratuito", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Jardín privado cerrado", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Porche de madera amueblado", "value": true }
+          ]
         }
-      ],
-      "amenityFeature": [
-        { "@type": "LocationFeatureSpecification", "name": "Piscina privada vallada", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Barbacoa de obra", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Aire acondicionado frío/calor", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Wi-Fi gratuito", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Jardín privado cerrado", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Porche de madera amueblado", "value": true }
       ]
     }
     </script>
