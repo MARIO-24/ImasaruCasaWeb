@@ -47,11 +47,15 @@ export const AdminSettings: React.FC = () => {
   // 4. Test Notification State
   const [sendingTest, setSendingTest] = useState<boolean>(false);
 
+  // Default production VAPID public key (Application Server Key)
+  const DEFAULT_VAPID_PUBLIC_KEY = 'BBGyVQorNwuDHbnP-MUvlB1lVrEqMIkwSgLOfRqWYJEDwP4SlgIqt3ff1FaJtB48wuZK5wYG91HzYM3P9Ubmc5U';
+
   // 5. Feedback Notice State
   const [feedback, setFeedback] = useState<{ type: 'success' | 'error' | 'info'; text: string } | null>(null);
 
   // VAPID configuration check
-  const isVapidConfigured = Boolean(import.meta.env.VITE_VAPID_PUBLIC_KEY);
+  const vapidPublicKey = import.meta.env.VITE_VAPID_PUBLIC_KEY || DEFAULT_VAPID_PUBLIC_KEY;
+  const isVapidConfigured = Boolean(vapidPublicKey);
 
   const showFeedback = useCallback((type: 'success' | 'error' | 'info', text: string) => {
     setFeedback({ type, text });
@@ -171,11 +175,10 @@ export const AdminSettings: React.FC = () => {
         return;
       }
 
-      const vapidPublicKey = import.meta.env.VITE_VAPID_PUBLIC_KEY;
       if (!vapidPublicKey) {
         showFeedback(
           'error',
-          'La clave pública VAPID (VITE_VAPID_PUBLIC_KEY) no está configurada en las variables de entorno.'
+          'La clave pública VAPID no está configurada.'
         );
         return;
       }
