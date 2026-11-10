@@ -133,12 +133,13 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   { id: '5', src: '/images/barbacoa-pergola.jpg', title: 'Barbacoa de obra y pérgola', category: 'exterior', alt: 'Barbacoa de obra con mesa de picnic en el jardín' },
   { id: '6', src: '/images/piscina-agua.jpg', title: 'Agua cristalina y muro rústico', category: 'piscina', alt: 'Vista de la piscina privada con muro de piedra natural' },
   { id: '7', src: '/images/cocina-equipada.jpg', title: 'Cocina con azulejos tradicionales', category: 'interior', alt: 'Cocina equipada con lavavajillas, microondas y fogones' },
-  { id: '8', src: '/images/salon-comedor.jpg', title: 'Salón comedor familiar', category: 'interior', alt: 'Salón comedor amueblado en madera con aire acondicionado' },
-  { id: '9', src: '/images/dormitorio-individuales.jpg', title: 'Segundo dormitorio (camas individuales)', category: 'interior', alt: 'Dormitorio de dos camas individuales' },
-  { id: '10', src: '/images/porche-comedor.jpg', title: 'Comedor en porche exterior', category: 'porche', alt: 'Mesa de comedor en el porche de madera' },
-  { id: '11', src: '/images/jardin-flores.jpg', title: 'Jardín y vegetación mediterránea', category: 'exterior', alt: 'Jardín con enredadera de flores y césped' },
-  { id: '12', src: '/images/cartel-madera-imasaru.jpg', title: 'Letrero artesanal Casa Imasaru', category: 'exterior', alt: 'Rótulo de madera tallado Casa Imasaru' },
-  { id: '13', src: '/images/salon-estar.jpg', title: 'Salón y zona de televisión', category: 'interior', alt: 'Zona de estar con sofá, televisión y muebles de madera' },
-  { id: '14', src: '/images/placa-oficial-turismo.jpg', title: 'Placa oficial RTA VTAR/CA/01451', category: 'exterior', alt: 'Placa oficial de Vivienda Turística de Alojamiento Rural de la Junta de Andalucía' }
+  { id: '8', src: '/images/cocina.jpg', title: 'Cocina totalmente equipada', category: 'interior', alt: 'Cocina de madera totalmente equipada con vitrocerámica, lavadora, lavavajillas y microondas' },
+  { id: '9', src: '/images/salon-comedor.jpg', title: 'Salón comedor familiar', category: 'interior', alt: 'Salón comedor amueblado en madera con aire acondicionado' },
+  { id: '10', src: '/images/dormitorio-individuales.jpg', title: 'Segundo dormitorio (camas individuales)', category: 'interior', alt: 'Dormitorio de dos camas individuales' },
+  { id: '11', src: '/images/porche-comedor.jpg', title: 'Comedor en porche exterior', category: 'porche', alt: 'Mesa de comedor en el porche de madera' },
+  { id: '12', src: '/images/jardin-flores.jpg', title: 'Jardín y vegetación mediterránea', category: 'exterior', alt: 'Jardín con enredadera de flores y césped' },
+  { id: '13', src: '/images/cartel-madera-imasaru.jpg', title: 'Letrero artesanal Casa Imasaru', category: 'exterior', alt: 'Rótulo de madera tallado Casa Imasaru' },
+  { id: '14', src: '/images/salon-estar.jpg', title: 'Salón y zona de televisión', category: 'interior', alt: 'Zona de estar con sofá, televisión y muebles de madera' },
+  { id: '15', src: '/images/placa-oficial-turismo.jpg', title: 'Placa oficial RTA VTAR/CA/01451', category: 'exterior', alt: 'Placa oficial de Vivienda Turística de Alojamiento Rural de la Junta de Andalucía' }
 ];
 

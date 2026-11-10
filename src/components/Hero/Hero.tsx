@@ -8,13 +8,13 @@ export const Hero: React.FC = () => {
       {/* Background Photography with Warm Film Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
-          src="/images/exterior-casa.jpg"
-          alt="Casa Vacacional Imasaru en Conil de la Frontera"
+          src="/images/jardin-flores.jpg"
+          alt="Jardín y vegetación mediterránea de Casa Vacacional Imasaru en Conil de la Frontera"
           fetchPriority="high"
           className="w-full h-full object-cover object-center transform scale-105 transition-transform duration-1000 ease-out"
         />
         {/* Coastal atmospheric gradient: warm amber, dark pine wood and soft white */}
-        <div className="absolute inset-0 bg-gradient-to-t from-timber-950/90 via-timber-950/45 to-timber-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-timber-950/90 via-timber-950/50 to-timber-950/30" />
       </div>
 
       {/* Hero Content Container */}
