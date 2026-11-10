@@ -1,6 +1,7 @@
 import React from 'react';
 import { Phone, MessageCircle, Mail, Clock, Award, ShieldCheck } from 'lucide-react';
 import { HOUSE_INFO } from '../../data/houseData';
+import { WhatsAppIcon } from '../common/WhatsAppIcon';
 
 export const ContactSection: React.FC = () => {
   return (
@@ -22,21 +23,25 @@ export const ContactSection: React.FC = () => {
         </div>
 
         {/* Contact Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-6 mb-8 sm:mb-12">
           
           {/* WhatsApp Card */}
-          <div className="p-5 sm:p-8 rounded-3xl bg-emerald-50/70 border border-emerald-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+          <div className="p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-emerald-50/70 border border-emerald-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center mb-5 shadow-md shadow-emerald-600/20">
-                <MessageCircle className="w-6 h-6" />
+              <div className="flex items-center gap-3.5 mb-2.5 sm:block sm:mb-0">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 sm:mb-5 shadow-sm sm:shadow-md shadow-emerald-600/20">
+                  <WhatsAppIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-emerald-800 block">
+                    Respuesta Rápida
+                  </span>
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-emerald-950 leading-tight mt-0.5 sm:mt-1 sm:mb-2">
+                    WhatsApp Directo
+                  </h3>
+                </div>
               </div>
-              <span className="text-xs font-bold uppercase tracking-wider text-emerald-800">
-                Respuesta Rápida
-              </span>
-              <h3 className="font-serif text-xl font-bold text-emerald-950 mt-1 mb-2">
-                WhatsApp Directo
-              </h3>
-              <p className="text-xs sm:text-sm text-emerald-900/80 leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-emerald-900/80 leading-relaxed mb-3.5 sm:mb-6">
                 El canal más ágil para consultar disponibilidad, resolver preguntas al instante y recibir detalles sobre la reserva.
               </p>
             </div>
@@ -44,60 +49,68 @@ export const ContactSection: React.FC = () => {
               href={HOUSE_INFO.hosts.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm transition-colors shadow-sm"
+              className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-medium text-xs sm:text-sm transition-colors shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
             >
-              <MessageCircle className="w-4 h-4" />
-              Escribir por WhatsApp
+              <WhatsAppIcon className="w-4 h-4" />
+              <span>Escribir por WhatsApp</span>
             </a>
           </div>
 
           {/* Telephone Card */}
-          <div className="p-5 sm:p-8 rounded-3xl bg-white border border-sand-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+          <div className="p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-sand-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-timber-900 text-white flex items-center justify-center mb-5 shadow-md">
-                <Phone className="w-6 h-6" />
+              <div className="flex items-center gap-3.5 mb-2.5 sm:block sm:mb-0">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-timber-900 text-white flex items-center justify-center flex-shrink-0 sm:mb-5 shadow-sm sm:shadow-md">
+                  <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-timber-600 block">
+                    Atención Telefónica
+                  </span>
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-timber-950 leading-tight mt-0.5 sm:mt-1 sm:mb-2">
+                    Llamada Directa
+                  </h3>
+                </div>
               </div>
-              <span className="text-xs font-bold uppercase tracking-wider text-timber-600">
-                Atención Telefónica
-              </span>
-              <h3 className="font-serif text-xl font-bold text-timber-950 mt-1 mb-2">
-                Llamada Directa
-              </h3>
-              <p className="text-xs sm:text-sm text-timber-600 leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-timber-600 leading-relaxed mb-3.5 sm:mb-6">
                 Habla directamente con Pilar para concretar condiciones, resolver dudas específicas sobre la estancia y confirmar fechas.
               </p>
             </div>
             <a
               href={`tel:${HOUSE_INFO.hosts.phone}`}
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-timber-900 hover:bg-timber-800 text-white font-medium text-sm transition-colors shadow-sm"
+              className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl bg-timber-900 hover:bg-timber-800 active:bg-timber-950 text-white font-medium text-xs sm:text-sm transition-colors shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-timber-500 focus-visible:ring-offset-2"
             >
               <Phone className="w-4 h-4 text-terracotta-400" />
-              Llamar al {HOUSE_INFO.hosts.phoneFormatted}
+              <span>Llamar al {HOUSE_INFO.hosts.phoneFormatted}</span>
             </a>
           </div>
 
           {/* Email Card */}
-          <div className="p-5 sm:p-8 rounded-3xl bg-white border border-sand-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+          <div className="p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-sand-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-sand-100 text-terracotta-600 flex items-center justify-center mb-5">
-                <Mail className="w-6 h-6" />
+              <div className="flex items-center gap-3.5 mb-2.5 sm:block sm:mb-0">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-sand-100 text-terracotta-600 flex items-center justify-center flex-shrink-0 sm:mb-5">
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-timber-600 block">
+                    Correo Electrónico
+                  </span>
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-timber-950 leading-tight mt-0.5 sm:mt-1 sm:mb-2">
+                    Email
+                  </h3>
+                </div>
               </div>
-              <span className="text-xs font-bold uppercase tracking-wider text-timber-600">
-                Correo Electrónico
-              </span>
-              <h3 className="font-serif text-xl font-bold text-timber-950 mt-1 mb-2">
-                Email
-              </h3>
-              <p className="text-xs sm:text-sm text-timber-600 leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-timber-600 leading-relaxed mb-3.5 sm:mb-6">
                 Si prefieres enviarnos un correo con las fechas y personas para las que buscas alojamiento.
               </p>
             </div>
             <a
               href={`mailto:${HOUSE_INFO.hosts.email}?subject=Consulta%20disponibilidad%20Casa%20Vacacional%20Imasaru`}
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-sand-100 hover:bg-sand-200 text-timber-900 font-medium text-sm transition-colors"
+              className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl bg-sand-100 hover:bg-sand-200 active:bg-sand-300 text-timber-900 font-medium text-xs sm:text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta-500 focus-visible:ring-offset-2"
             >
               <Mail className="w-4 h-4 text-terracotta-600" />
-              {HOUSE_INFO.hosts.email}
+              <span className="truncate">{HOUSE_INFO.hosts.email}</span>
             </a>
           </div>
 

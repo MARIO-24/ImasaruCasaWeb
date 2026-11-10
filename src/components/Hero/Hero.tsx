@@ -1,6 +1,7 @@
 import React from 'react';
-import { Calendar, MessageCircle, MapPin, Users, Bed, Waves, Utensils, Car } from 'lucide-react';
+import { Calendar, Users, Bed, Waves, Utensils, Car } from 'lucide-react';
 import { HOUSE_INFO } from '../../data/houseData';
+import { WhatsAppIcon } from '../common/WhatsAppIcon';
 
 export const Hero: React.FC = () => {
   return (
@@ -19,14 +20,6 @@ export const Hero: React.FC = () => {
 
       {/* Hero Content Container */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white pt-10">
-        {/* Pill Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sand-50/20 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-medium tracking-wide mb-6">
-          <MapPin className="w-3.5 h-3.5 text-terracotta-400" />
-          <span>Conil de la Frontera · Cádiz</span>
-          <span className="text-white/40">|</span>
-          <span className="text-sand-100">{HOUSE_INFO.registrationNumber}</span>
-        </div>
-
         {/* Main Heading */}
         <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
           Casa Vacacional Imasaru <br className="hidden sm:inline" />
@@ -79,7 +72,7 @@ export const Hero: React.FC = () => {
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/95 hover:bg-white text-timber-900 hover:text-timber-950 font-medium text-base shadow-md transition-all duration-200 active:scale-[0.98]"
           >
-            <MessageCircle className="w-5 h-5 text-emerald-600" />
+            <WhatsAppIcon className="w-5 h-5 text-emerald-600 flex-shrink-0" />
             Preguntar por WhatsApp
           </a>
         </div>

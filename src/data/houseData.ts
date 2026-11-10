@@ -59,7 +59,7 @@ export const SPACES: SpaceDetail[] = [
     title: 'Dormitorio Principal Abuhardillado',
     subtitle: 'Planta Alta · Vistas Panorámicas',
     description: 'Ocupa la planta superior casi en su totalidad. Un espacio cálido de madera con techos inclinados y vigas vistas, cama de matrimonio y acceso directo a una amplia terraza privada con vistas a la piscina y a las puestas de sol de Conil.',
-    features: ['Cama de matrimonio', 'Terraza privada', 'Vistas a la piscina y atardecer', 'Techos y suelos de madera', 'Climatización'],
+    features: ['Cama de matrimonio', 'Terraza privada', 'Vistas a la piscina y atardecer', 'Techos y suelos de madera'],
     image: '/images/dormitorio-principal.jpg',
     badge: 'Planta Alta'
   },
@@ -120,7 +120,7 @@ export const AMENITIES: Amenity[] = [
   { name: 'Internet Wi-Fi', description: 'Conexión inalámbrica gratuita en toda la vivienda', iconName: 'Wifi', category: 'comfort' },
   { name: 'Cocina Completa', description: 'Lavavajillas, lavadora, microondas, frigorífico y fogones', iconName: 'UtensilsCrossed', category: 'interior' },
   { name: 'Parking Privado y Techado', description: 'Aparcamiento cubierto dentro de la propia parcela cerrada', iconName: 'Car', category: 'comfort' },
-  { name: 'Mascotas bienvenidas', description: 'Suplemento de 5 € por mascota y por noche.', iconName: 'HeartHandshake', category: 'comfort' },
+  { name: 'Mascotas bienvenidas', description: 'Suplemento de 5 € por mascota y por noche', iconName: 'HeartHandshake', category: 'comfort' },
   { name: 'Registro Oficial Junta Andalucía', description: 'Vivienda Turística de Alojamiento Rural VTAR/CA/01451', iconName: 'Award', category: 'comfort' },
   { name: 'Atención Directa Propietarios', description: 'Trato cercano y personal con Pilar y Paco', iconName: 'UserCheck', category: 'comfort' }
 ];

@@ -79,6 +79,9 @@ export const GalleryGrid: React.FC = () => {
     const handleResize = () => {
       updateScrollState();
       updateFilterScrollState();
+      if (window.innerWidth < 640) {
+        setIsExpanded(false);
+      }
     };
 
     window.addEventListener('resize', handleResize);
@@ -201,6 +204,7 @@ export const GalleryGrid: React.FC = () => {
   };
 
   const handleToggleExpand = () => {
+    if (window.innerWidth < 640) return;
     if (isExpanded) {
       const galeriaElem = document.getElementById('galeria');
       if (galeriaElem) {
@@ -398,12 +402,12 @@ export const GalleryGrid: React.FC = () => {
             </div>
 
             {/* Horizontal Track Footer Cue & Counter */}
-            <div className="mt-4 flex items-center justify-between text-xs text-timber-600 px-1">
-              <span className="flex items-center gap-1.5">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-terracotta-500 animate-pulse" />
+            <div className="mt-4 flex items-center justify-between gap-2 text-xs text-timber-600 px-1">
+              <span className="flex items-center gap-1.5 min-w-0 pr-1 text-[11px] sm:text-xs leading-tight sm:leading-normal">
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-terracotta-500 animate-pulse flex-shrink-0" />
                 Desliza horizontalmente o pulsa cualquier foto para ampliarla
               </span>
-              <span className="font-semibold text-timber-800 bg-sand-200/80 px-2.5 py-1 rounded-full">
+              <span className="font-semibold text-timber-800 bg-sand-200/80 px-2.5 py-1 rounded-full whitespace-nowrap flex-shrink-0 text-xs">
                 Foto {currentPhotoIndex + 1} de {filteredPhotos.length}
               </span>
             </div>
@@ -449,7 +453,7 @@ export const GalleryGrid: React.FC = () => {
 
         {/* Expand / Collapse Button */}
         {showExpandButton && (
-          <div className="mt-8 sm:mt-10 flex justify-center">
+          <div className="hidden sm:flex mt-8 sm:mt-10 justify-center">
             <button
               type="button"
               onClick={handleToggleExpand}

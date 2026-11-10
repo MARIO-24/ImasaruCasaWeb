@@ -27,16 +27,23 @@ export const QuickHighlights: React.FC = () => {
 
   return (
     <section className="relative -mt-8 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="bg-white rounded-2xl shadow-xl shadow-timber-950/5 border border-sand-200/80 p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="bg-white rounded-2xl shadow-xl shadow-timber-950/5 border border-sand-200/80 p-3 sm:p-8 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6 grid-rows-2 sm:grid-rows-none">
         {highlights.map((item, idx) => {
           const Icon = item.icon;
           return (
-            <div key={idx} className="flex flex-col space-y-2.5">
-              <div className="w-10 h-10 rounded-xl bg-sand-100 flex items-center justify-center text-terracotta-600">
+            <div
+              key={idx}
+              className="p-3 sm:p-0 rounded-xl sm:rounded-none bg-sand-50/70 sm:bg-transparent border border-sand-200/80 sm:border-0 flex flex-col items-center sm:items-start justify-center sm:justify-start text-center sm:text-left h-full min-w-0 sm:space-y-2.5"
+            >
+              <div className="w-10 h-10 rounded-xl bg-sand-100 flex items-center justify-center text-terracotta-600 mb-2 sm:mb-0 flex-shrink-0">
                 <Icon className="w-5 h-5" />
               </div>
-              <h3 className="font-serif text-lg font-bold text-timber-950">{item.title}</h3>
-              <p className="text-sm text-timber-700 leading-relaxed">{item.description}</p>
+              <h3 className="font-serif text-sm sm:text-lg font-bold text-timber-950 leading-snug sm:leading-normal mb-1.5 sm:mb-0">
+                {item.title}
+              </h3>
+              <p className="text-xs sm:text-sm text-timber-700 leading-snug sm:leading-relaxed">
+                {item.description}
+              </p>
             </div>
           );
         })}

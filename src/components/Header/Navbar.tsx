@@ -45,7 +45,9 @@ export const Navbar: React.FC = () => {
 
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
+          mobileMenuOpen
+            ? 'bg-sand-50 py-3 shadow-md'
+            : isScrolled
             ? 'bg-sand-50/95 backdrop-blur-md shadow-sm py-3 border-b border-sand-200'
             : 'bg-gradient-to-b from-timber-950/70 via-timber-950/30 to-transparent py-5 text-white'
         }`}
@@ -55,14 +57,14 @@ export const Navbar: React.FC = () => {
           <a href="#" className="flex flex-col group">
             <span
               className={`font-serif text-lg sm:text-2xl font-bold tracking-tight transition-colors ${
-                isScrolled ? 'text-timber-950 group-hover:text-terracotta-600' : 'text-white'
+                (isScrolled || mobileMenuOpen) ? 'text-timber-950 group-hover:text-terracotta-600' : 'text-white'
               }`}
             >
               Casa Vacacional Imasaru
             </span>
             <span
               className={`text-xs tracking-wider font-medium flex items-center gap-1 ${
-                isScrolled ? 'text-timber-600' : 'text-sand-200'
+                (isScrolled || mobileMenuOpen) ? 'text-timber-600' : 'text-sand-200'
               }`}
             >
               <MapPin className="w-3 h-3 text-terracotta-500" />
@@ -101,7 +103,7 @@ export const Navbar: React.FC = () => {
             <a
               href="tel:+34699278630"
               className={`p-2 rounded-full transition-colors ${
-                isScrolled ? 'text-timber-900 hover:bg-sand-100' : 'text-white hover:bg-white/10'
+                (isScrolled || mobileMenuOpen) ? 'text-timber-900 hover:bg-sand-100' : 'text-white hover:bg-white/10'
               }`}
               aria-label="Llamar a los propietarios"
             >
@@ -111,7 +113,7 @@ export const Navbar: React.FC = () => {
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={`p-2 rounded-lg transition-colors ${
-                isScrolled ? 'text-timber-900 hover:bg-sand-100' : 'text-white hover:bg-white/10'
+                (isScrolled || mobileMenuOpen) ? 'text-timber-900 hover:bg-sand-100' : 'text-white hover:bg-white/10'
               }`}
               aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
