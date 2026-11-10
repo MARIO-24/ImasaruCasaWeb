@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useAdminAuth } from '../context/AdminAuthContext';
 import { AdminLogin } from '../components/AdminLogin';
 import { ResetPassword } from '../components/ResetPassword';
@@ -6,8 +6,11 @@ import { AdminLayout } from '../components/AdminLayout';
 import { AdminDashboard } from '../components/AdminDashboard';
 import { AdminBookings } from '../components/AdminBookings';
 import { AdminReviews } from '../components/AdminReviews';
+import { AdminSettings } from '../components/AdminSettings';
+import { InAppReviewNotification } from '../components/InAppReviewNotification';
 import { BookingModal } from '../components/BookingModal';
 import { 
+  supabase,
   fetchAllBookingsAdmin, 
   createBookingAdmin, 
   updateBookingAdmin, 
@@ -23,17 +26,18 @@ export const AdminRouter: React.FC = () => {
   const { user, isAdmin, loading: authLoading } = useAdminAuth();
 
   // Tab State: parsed from window.location.pathname
-  const getTabFromPath = (): 'dashboard' | 'reservas' | 'resenas' => {
+  const getTabFromPath = (): 'dashboard' | 'reservas' | 'resenas' | 'ajustes' => {
     const path = window.location.pathname;
     if (path.includes('/admin/reservas')) return 'reservas';
     if (path.includes('/admin/resenas')) return 'resenas';
+    if (path.includes('/admin/ajustes')) return 'ajustes';
     return 'dashboard';
   };
 
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'reservas' | 'resenas'>(getTabFromPath);
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'reservas' | 'resenas' | 'ajustes'>(getTabFromPath);
 
   // Sync tab with browser history
-  const handleTabChange = (tab: 'dashboard' | 'reservas' | 'resenas') => {
+  const handleTabChange = (tab: 'dashboard' | 'reservas' | 'resenas' | 'ajustes') => {
     setActiveTab(tab);
     const newPath = tab === 'dashboard' ? '/admin' : `/admin/${tab}`;
     if (window.location.pathname !== newPath) {
@@ -67,6 +71,50 @@ export const AdminRouter: React.FC = () => {
   // Global Quick Modal for Dashboard
   const [isQuickBookingModalOpen, setIsQuickBookingModalOpen] = useState(false);
   const [quickEditingBooking, setQuickEditingBooking] = useState<Booking | null>(null);
+
+  // Realtime in-app notification state for new incoming reviews
+  const [realtimeReview, setRealtimeReview] = useState<Review | null>(null);
+  const notifiedReviewIdsRef = useRef<Set<string>>(new Set());
+
+  // Subscribe to Supabase Realtime INSERT events on reviews table
+  useEffect(() => {
+    if (!isAdmin || !supabase) return;
+
+    const channel = supabase
+      .channel('admin-reviews-realtime-channel')
+      .on(
+        'postgres_changes',
+        {
+          event: 'INSERT',
+          schema: 'public',
+          table: 'reviews'
+        },
+        (payload) => {
+          const newReview = payload.new as Review;
+          if (!newReview || !newReview.id) return;
+
+          // Prevent duplicate alerts
+          if (notifiedReviewIdsRef.current.has(newReview.id)) return;
+          notifiedReviewIdsRef.current.add(newReview.id);
+
+          // Update local reviews state so pending counter & review list refresh instantly
+          setReviews((prev) => {
+            if (prev.some((r) => r.id === newReview.id)) return prev;
+            return [newReview, ...prev];
+          });
+
+          // Trigger visual in-app banner
+          setRealtimeReview(newReview);
+        }
+      )
+      .subscribe();
+
+    return () => {
+      if (supabase) {
+        supabase.removeChannel(channel);
+      }
+    };
+  }, [isAdmin]);
 
   // Load Bookings & Reviews
   const loadData = useCallback(async () => {
@@ -184,67 +232,80 @@ export const AdminRouter: React.FC = () => {
   const pendingReviewsCount = reviews.filter((r) => !r.approved).length;
 
   return (
-    <AdminLayout
-      activeTab={activeTab}
-      onTabChange={handleTabChange}
-      pendingReviewsCount={pendingReviewsCount}
-      notification={notification}
-      onClearNotification={() => setNotification(null)}
-    >
-      {activeTab === 'dashboard' && (
-        <AdminDashboard
-          bookings={bookings}
-          reviews={reviews}
-          onNewBooking={() => {
-            setQuickEditingBooking(null);
-            setIsQuickBookingModalOpen(true);
-          }}
-          onEditBooking={(booking: Booking) => {
-            setQuickEditingBooking(booking);
-            setIsQuickBookingModalOpen(true);
-          }}
-          onNavigate={handleTabChange}
-          loading={dataLoading}
-        />
-      )}
+    <>
+      {/* Realtime In-App Notification Alert */}
+      <InAppReviewNotification
+        review={realtimeReview}
+        onNavigateToReviews={() => handleTabChange('resenas')}
+        onDismiss={() => setRealtimeReview(null)}
+      />
 
-      {activeTab === 'reservas' && (
-        <AdminBookings
-          bookings={bookings}
-          onSaveBooking={handleSaveBooking}
-          onDeleteBooking={handleDeleteBooking}
-          loading={dataLoading}
-        />
-      )}
+      <AdminLayout
+        activeTab={activeTab}
+        onTabChange={handleTabChange}
+        pendingReviewsCount={pendingReviewsCount}
+        notification={notification}
+        onClearNotification={() => setNotification(null)}
+      >
+        {activeTab === 'dashboard' && (
+          <AdminDashboard
+            bookings={bookings}
+            reviews={reviews}
+            onNewBooking={() => {
+              setQuickEditingBooking(null);
+              setIsQuickBookingModalOpen(true);
+            }}
+            onEditBooking={(booking: Booking) => {
+              setQuickEditingBooking(booking);
+              setIsQuickBookingModalOpen(true);
+            }}
+            onNavigate={handleTabChange}
+            loading={dataLoading}
+          />
+        )}
 
-      {activeTab === 'resenas' && (
-        <AdminReviews
-          reviews={reviews}
-          onApproveReview={handleApproveReview}
-          onDeleteReview={handleDeleteReview}
-          loading={dataLoading}
-        />
-      )}
+        {activeTab === 'reservas' && (
+          <AdminBookings
+            bookings={bookings}
+            onSaveBooking={handleSaveBooking}
+            onDeleteBooking={handleDeleteBooking}
+            loading={dataLoading}
+          />
+        )}
 
-      {/* Global Quick Booking Modal for Dashboard triggers */}
-      <BookingModal
-        isOpen={isQuickBookingModalOpen}
-        onClose={() => {
-          setIsQuickBookingModalOpen(false);
-          setQuickEditingBooking(null);
-        }}
-        initialBooking={quickEditingBooking}
-        existingBookings={bookings}
-        onSave={async (bookingInput: BookingInput) => {
-          const res = await handleSaveBooking(bookingInput, quickEditingBooking?.id);
-          if (res.success) {
+        {activeTab === 'resenas' && (
+          <AdminReviews
+            reviews={reviews}
+            onApproveReview={handleApproveReview}
+            onDeleteReview={handleDeleteReview}
+            loading={dataLoading}
+          />
+        )}
+
+        {activeTab === 'ajustes' && (
+          <AdminSettings />
+        )}
+
+        {/* Global Quick Booking Modal for Dashboard triggers */}
+        <BookingModal
+          isOpen={isQuickBookingModalOpen}
+          onClose={() => {
             setIsQuickBookingModalOpen(false);
             setQuickEditingBooking(null);
-          }
-          return res.success;
-        }}
-      />
-    </AdminLayout>
+          }}
+          initialBooking={quickEditingBooking}
+          existingBookings={bookings}
+          onSave={async (bookingInput: BookingInput) => {
+            const res = await handleSaveBooking(bookingInput, quickEditingBooking?.id);
+            if (res.success) {
+              setIsQuickBookingModalOpen(false);
+              setQuickEditingBooking(null);
+            }
+            return res.success;
+          }}
+        />
+      </AdminLayout>
+    </>
   );
 };
 

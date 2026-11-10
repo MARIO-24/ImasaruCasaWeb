@@ -1,10 +1,10 @@
 import React from 'react';
-import { Home, Calendar, MessageSquare, LogOut, ExternalLink, ShieldCheck, X } from 'lucide-react';
+import { Home, Calendar, MessageSquare, Settings, LogOut, ExternalLink, ShieldCheck, X } from 'lucide-react';
 import { useAdminAuth } from '../context/AdminAuthContext';
 
 export interface AdminLayoutProps {
-  activeTab: 'dashboard' | 'reservas' | 'resenas';
-  onTabChange: (tab: 'dashboard' | 'reservas' | 'resenas') => void;
+  activeTab: 'dashboard' | 'reservas' | 'resenas' | 'ajustes';
+  onTabChange: (tab: 'dashboard' | 'reservas' | 'resenas' | 'ajustes') => void;
   pendingReviewsCount?: number;
   notification?: { type: 'success' | 'error'; message: string } | null;
   onClearNotification?: () => void;
@@ -93,6 +93,19 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                     {pendingReviewsCount}
                   </span>
                 )}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => onTabChange('ajustes')}
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+                  activeTab === 'ajustes'
+                    ? 'bg-white text-timber-950 shadow-sm'
+                    : 'text-timber-700 hover:text-timber-950 hover:bg-white/50'
+                }`}
+              >
+                <Settings className="w-4 h-4 text-terracotta-600" />
+                <span>Ajustes</span>
               </button>
             </nav>
 
@@ -195,7 +208,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
         <button
           type="button"
           onClick={() => onTabChange('resenas')}
-          className={`flex flex-col items-center justify-center p-2 rounded-xl relative transition-all min-w-[64px] min-h-[48px] ${
+          className={`flex flex-col items-center justify-center p-2 rounded-xl relative transition-all min-w-[56px] min-h-[48px] ${
             activeTab === 'resenas'
               ? 'text-terracotta-600 font-bold'
               : 'text-timber-600 hover:text-timber-900 font-medium'
@@ -210,6 +223,19 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
             )}
           </div>
           <span className="text-[11px]">Reseñas</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => onTabChange('ajustes')}
+          className={`flex flex-col items-center justify-center p-2 rounded-xl transition-all min-w-[56px] min-h-[48px] ${
+            activeTab === 'ajustes'
+              ? 'text-terracotta-600 font-bold'
+              : 'text-timber-600 hover:text-timber-900 font-medium'
+          }`}
+        >
+          <Settings className="w-5 h-5 mb-0.5" />
+          <span className="text-[11px]">Ajustes</span>
         </button>
       </nav>
     </div>

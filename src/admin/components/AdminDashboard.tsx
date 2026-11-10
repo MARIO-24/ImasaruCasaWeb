@@ -19,7 +19,7 @@ export interface AdminDashboardProps {
   reviews: Review[];
   onNewBooking: () => void;
   onEditBooking: (booking: Booking) => void;
-  onNavigate: (tab: 'dashboard' | 'reservas' | 'resenas') => void;
+  onNavigate: (tab: 'dashboard' | 'reservas' | 'resenas' | 'ajustes') => void;
   loading?: boolean;
 }
 

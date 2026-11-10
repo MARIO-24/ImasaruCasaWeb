@@ -35,3 +35,6 @@ dist-ssr
 # Local test & scratch scripts
 test_playwright.cjs
 /images/
+
+# Supabase CLI temporary files
+supabase/.temp/
